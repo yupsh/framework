@@ -25,24 +25,28 @@ type ExecutionFlags struct {
 
 // Execution flag types
 type PipeFailFlag bool
+
 const (
 	PipeFail   PipeFailFlag = true
 	NoPipeFail PipeFailFlag = false
 )
 
 type BufferedFlag bool
+
 const (
 	Buffered   BufferedFlag = true
 	Unbuffered BufferedFlag = false
 )
 
 type VerboseFlag bool
+
 const (
 	Verbose VerboseFlag = true
 	Quiet   VerboseFlag = false
 )
 
 type DryRunFlag bool
+
 const (
 	DryRun   DryRunFlag = true
 	NoDryRun DryRunFlag = false
@@ -54,9 +58,9 @@ type MaxProcs int
 // Flag configuration methods
 func (f PipeFailFlag) Configure(flags *ExecutionFlags) { flags.PipeFail = bool(f) }
 func (f BufferedFlag) Configure(flags *ExecutionFlags) { flags.Buffered = bool(f) }
-func (f VerboseFlag) Configure(flags *ExecutionFlags) { flags.Verbose = bool(f) }
-func (f DryRunFlag) Configure(flags *ExecutionFlags) { flags.DryRun = bool(f) }
-func (m MaxProcs) Configure(flags *ExecutionFlags) { flags.MaxProcs = int(m) }
+func (f VerboseFlag) Configure(flags *ExecutionFlags)  { flags.Verbose = bool(f) }
+func (f DryRunFlag) Configure(flags *ExecutionFlags)   { flags.DryRun = bool(f) }
+func (m MaxProcs) Configure(flags *ExecutionFlags)     { flags.MaxProcs = int(m) }
 
 // NewPipeline creates a new pipeline with the given commands
 func NewPipeline(commands ...Command) *Pipeline {
